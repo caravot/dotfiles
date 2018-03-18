@@ -27,18 +27,40 @@ NC="\e[m"               # Color Reset
 alias ll='ls -l'
 alias lla='ls -al'
 alias c='clear'
+alias x='exit'
 
+alias vi='vim'
 alias wtf='cd /Applications/World\ of\ Warcraft/WTF'
 alias chrome='open -a Google\ Chrome '
 alias vbash='vi ~/.bashrc'
 alias sbash='source ~/.bashrc'
 alias tomcat='cd /Applications/tomcat/'
-alias ssh-jhu='ssh cravott1@dev8.jhuep.com'
-alias jhu='cd /Users/carrie/IdeaProjects/jhu-java-web-782'
-alias jhu-push='scp -r ~/IdeaProjects/jhu-java-web-782/web/* cravott1@dev8.jhuep.com:/usr/local/tomcat/webapps/cravott1'
-alias jhu-m1='scp -r ~/IdeaProjects/jhu-java-web-782/out/artifacts/cravott1_assignment1/cravott1_assignment1.war cravott1@dev8.jhuep.com:/usr/local/tomcat/webapps/'
+alias sshjhu='ssh cravott1@web6.jhuep.com'
+alias jc='cd /Users/carrie/Documents/Projects/en.605.784_javaee/'
+
 #PS1="$GREEN[\w] \n$DARKGRAY($PCT\t$DARKGRAY)-($PCT\u$DARKGRAY)-($PCT!$DARKGRAY)$YELLOW-> $NC"
+
+# load classpath from weblogc server
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home
+/Users/carrie/Oracle/wls12.2.1.2/user_projects/domains/car_domain/bin/setDomainEnv.sh
+
 export PS1="$Cyan\u$NC@$Green\h$NC:[$Purple\w$NC]\$ \[$(tput sgr0)\]"
+export RAILS_ENV=development
+
+export WLS_BIN=/Users/carrie/Oracle/wls12.2.1.2/user_projects/domains/car_domain/bin
+export WLS_JAR=/Users/carrie/Oracle/wls12.2.1.2/wlserver/server/lib/weblogic.jar
+export DERBY_HOME=/usr/local/Cellar/derby/10.14.1.0
+export M2_HOME=/Applications/maven/
+export M2=$M2_HOME/bin
+export PATH=$M2:$DERBY_HOME/bin:$WLS_BIN:$WLS_JAR:$PATH
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+# nodejs /usr/local/bin/npm
+#eval "$(rbenv init -)"
+
+export ES=/usr/local/etc/elasticsearch
+export KB=/usr/local/etc/kibana
+export LS=/usr/local/bin/logstash
 
 function extract() {
     if [ -f $1 ] ; then
@@ -60,5 +82,3 @@ function extract() {
         echo "'$1' is not a valid file!"
     fi
 }
-
-

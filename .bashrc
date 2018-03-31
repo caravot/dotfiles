@@ -38,6 +38,9 @@ alias tomcat='cd /Applications/tomcat/'
 alias sshjhu='ssh cravott1@web6.jhuep.com'
 alias jc='cd /Users/carrie/Documents/Projects/en.605.784_javaee/'
 
+alias pg-start='pg_ctl -D /usr/local/var/postgres start'
+alias pg-stop='pg_ctl -D /usr/local/var/postgres stop'
+
 #PS1="$GREEN[\w] \n$DARKGRAY($PCT\t$DARKGRAY)-($PCT\u$DARKGRAY)-($PCT!$DARKGRAY)$YELLOW-> $NC"
 
 # load classpath from weblogc server
@@ -61,6 +64,15 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 export ES=/usr/local/etc/elasticsearch
 export KB=/usr/local/etc/kibana
 export LS=/usr/local/bin/logstash
+
+alias notes='cat $HOME/notes.md'
+note() {
+  if [ ! -z "$1" ]; then
+    echo $(date +"%Y%m%d-%H%M") $@  >> $HOME/notes.md
+  else
+    echo $(date +"%Y%m%d-%H%M") "$(cat)"  >> $HOME/notes.md
+  fi
+}
 
 function extract() {
     if [ -f $1 ] ; then
